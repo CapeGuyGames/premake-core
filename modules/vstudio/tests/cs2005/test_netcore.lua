@@ -138,6 +138,32 @@ function suite.allowUnsafeProperty_core()
     ]]
 end
 
+function suite.project_use_target_framework()
+    dotnetframework "net10.0"
+    prepareProjectProperties()
+    test.capture [[
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<TargetFramework>net10.0</TargetFramework>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	</PropertyGroup>
+    ]]
+end
+
+function suite.project_use_target_frameworks()
+    dotnetframework "net10.0;net8.0"
+    prepareProjectProperties()
+    test.capture [[
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<TargetFrameworks>net10.0;net8.0</TargetFrameworks>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	</PropertyGroup>
+    ]]
+end
+
 function suite.project_element_configurations()
 	p.action.set("vs2022")
 	dotnetframework "net8.0"
