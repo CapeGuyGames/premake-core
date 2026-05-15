@@ -159,6 +159,13 @@
 	}
 
 	p.api.register {
+		name = "enableimplicitusings",
+		scope = "config",
+		kind = "boolean",
+		default = false
+	}
+
+	p.api.register {
 		name = "externalanglebrackets",
 		scope = "config",
 		kind = "string",

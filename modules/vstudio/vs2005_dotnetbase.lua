@@ -817,6 +817,10 @@
 		_p(2,'<EnableDefaultCompileItems>%s</EnableDefaultCompileItems>', iif(cfg.enableDefaultCompileItems, "true", "false"))
 	end
 
+	function dotnetbase.netcore.enableImplicitUsings(cfg)
+		_p(2,'<ImplicitUsings>%s</ImplicitUsings>', iif(cfg.enableImplicitUsings, "true", "false"))
+	end
+
 	function dotnetbase.netcore.useWpf(cfg)
 		if cfg.wpf == p.ON then
 			_p(2,'<UseWpf>true</UseWpf>')
