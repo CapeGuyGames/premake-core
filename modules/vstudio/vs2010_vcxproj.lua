@@ -118,7 +118,12 @@
 
 		local framework = prj.dotnetframework or action.vstudio.targetFramework or "4.0"
 		if framework and dotnetbase.isNewFormatProject(prj) then
-			p.w('<TargetFramework>%s</TargetFramework>', framework)
+			if string.match(framework, ";") then
+				p.w('<TargetFrameworks>%s</TargetFrameworks>', framework)
+			else
+				p.w('<TargetFramework>%s</TargetFramework>', framework)
+			end
+
 		else
 			p.w('<TargetFrameworkVersion>v%s</TargetFrameworkVersion>', framework)
 		end

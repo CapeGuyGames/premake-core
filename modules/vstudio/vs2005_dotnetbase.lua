@@ -809,7 +809,11 @@
 		local action = p.action.current()
 		local framework = cfg.dotnetframework or action.vstudio.targetFramework
 		if framework and dotnetbase.isNewFormatProject(cfg) then
-			_p(2,'<TargetFramework>%s</TargetFramework>', framework)
+			if string.match(framework, ";") then
+				_p(2,'<TargetFrameworks>%s</TargetFrameworks>', framework)
+			else
+				_p(2,'<TargetFramework>%s</TargetFramework>', framework)
+			end
 		end
 	end
 
