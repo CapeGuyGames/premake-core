@@ -825,6 +825,12 @@
 		_p(2,'<ImplicitUsings>%s</ImplicitUsings>', iif(cfg.enableImplicitUsings, "true", "false"))
 	end
 
+	function dotnetbase.netcore.appManifest(cfg)
+		if cfg.appManifest and string.len(cfg.appManifest) > 0 then
+			_p(2,'<ApplicationManifest>%s</ApplicationManifest>', cfg.appManifest)
+		end
+	end
+
 	function dotnetbase.netcore.useWpf(cfg)
 		if cfg.wpf == p.ON then
 			_p(2,'<UseWpf>true</UseWpf>')

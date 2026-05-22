@@ -166,6 +166,12 @@
 	}
 
 	p.api.register {
+		name = "appManifest",
+		scope = "config",
+		kind = "string"
+	}
+
+	p.api.register {
 		name = "externalanglebrackets",
 		scope = "config",
 		kind = "string",
